@@ -1,6 +1,4 @@
 import org.w3c.dom.*;
-
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
@@ -42,8 +40,7 @@ public class xml_modin {
     static void addNewCustomer(Document doc){
         Element newCustomer= doc.createElement("customer");
 
-        Node customersRootNode=doc.getFirstChild();
-        customersRootNode.appendChild(newCustomer);
+
 
         //set id
         //TODO: replace this by setting the id to +1 of customer's length
@@ -52,6 +49,7 @@ public class xml_modin {
         System.out.println("Enter a new ID: ");
         String id=idreader.next();
         attrID.setValue(id);
+        newCustomer.setAttributeNode(attrID);
 
 
         //set the customer name
@@ -59,7 +57,8 @@ public class xml_modin {
         Scanner namereader =new Scanner(System.in);
         System.out.println("Enter a Name: ");
         String name=namereader.next();
-        custName.appendChild(doc.createTextNode(name));
+        custName.setTextContent(name);
+        custName.appendChild(newCustomer);
 
 
         /*
@@ -80,5 +79,7 @@ public class xml_modin {
         */
         namereader.close();
         idreader.close();
+        Node customersRootNode=doc.getFirstChild();
+        customersRootNode.appendChild(newCustomer);
     }
 }
