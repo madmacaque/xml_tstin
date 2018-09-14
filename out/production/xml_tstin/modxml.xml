@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><customers>
-    <customer ID="1">
-        <name>Min</name>
-        <phNO>09448002087</phNO>
-    </customer>
-    <customer ID="2">
-        <name>Krishna</name>
-        <phNO>09448002087</phNO>
-    </customer>
-    <customer ID="3">
-        <name>krish</name>
-        <phNO>095504159</phNO>
-    </customer>
-    <customer ID="4"><name>Mandira</name><phNO>09253884434</phNO></customer>
-    <customer ID="5"><name>San</name><phNO>20345238475923</phNO></customer>
-    <customer ID="6"><name>krish</name><phNO>999999</phNO></customer>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<customers>
+
 </customers>

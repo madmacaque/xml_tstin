@@ -43,7 +43,7 @@ public class xml_modin {
             addNewCustomer(doc);
             return;
         }
-        else if (response.equals("no") || response.equals("NO") || response.equals("n") || response.equals("N")){
+        else if (response.equals("no") || response.equals("NO") || response.equals("n") || response.equals("N")) {
             return;
         }
         else
