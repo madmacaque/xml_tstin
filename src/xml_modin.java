@@ -59,7 +59,7 @@ public class xml_modin {
 
         //check latest ID
         NodeList listofCustomers=doc.getElementsByTagName("customer");
-        int latestID=listofCustomers.getLength();
+        int latestID=listofCustomers.getLength() +1;
 
         //customer elements
         Element newCustomer = doc.createElement("customer");
@@ -68,7 +68,7 @@ public class xml_modin {
         //attribute for customer element: ID
         //ID number goes up by one each time we add a customer
         Attr attr = doc.createAttribute("ID");
-        attr.setValue(Integer.toString(latestID+1));
+        attr.setValue(Integer.toString(latestID));
         newCustomer.setAttributeNode(attr);
 
         //add name, phNO, list of friends
@@ -77,16 +77,24 @@ public class xml_modin {
         Element name = doc.createElement("name");
         Scanner nameReder=new Scanner(System.in);
         System.out.println("Enter Customer Name: ");
-        name.setTextContent(nameReder.next());
+        String custName=nameReder.next();
+        name.setTextContent(custName);
         newCustomer.appendChild(name);
         //phNO
         Element phNO = doc.createElement("phNO");
         Scanner phNOREader=new Scanner(System.in);
         System.out.println("Enter Customer's Phone Number: ");
+        String custPh=phNOREader.next();
         newCustomer.appendChild(phNO);
-        phNO.setTextContent(phNOREader.next());
+        phNO.setTextContent(custPh);
+
+        String tolog="Added a new customer "+ latestID + ", "+ custName + ", "+custPh;
 
         phNOREader.close();
         nameReder.close();
+
+        logEverything tobeLogged=new logEverything();
+        tobeLogged.logEverything("customer", tolog);
+
     }
 }
