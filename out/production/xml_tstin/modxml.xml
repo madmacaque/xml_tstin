@@ -11,4 +11,7 @@
         <name>krish</name>
         <phNO>095504159</phNO>
     </customer>
-<customer ID="3"><name>Mandira</name><phNO>09253884434</phNO></customer></customers>
+    <customer ID="4"><name>Mandira</name><phNO>09253884434</phNO></customer>
+    <customer ID="5"><name>San</name><phNO>20345238475923</phNO></customer>
+    <customer ID="6"><name>krish</name><phNO>999999</phNO></customer>
+</customers>
