@@ -37,49 +37,40 @@ public class xml_modin {
     }
 
     //add new customer with user input name, ph, and id
-    static void addNewCustomer(Document doc){
-        Element newCustomer= doc.createElement("customer");
+    static void addNewCustomer(Document doc) {
+        //root customers element
+        Node rootElement=doc.getFirstChild();
 
 
+        //check latest ID
+        NodeList listofCustomers=doc.getElementsByTagName("customer");
+        int latestID=listofCustomers.getLength();
 
-        //set id
-        //TODO: replace this by setting the id to +1 of customer's length
-        Attr attrID = doc.createAttribute("ID");
-        Scanner idreader =new Scanner(System.in);
-        System.out.println("Enter a new ID: ");
-        String id=idreader.next();
-        attrID.setValue(id);
-        newCustomer.setAttributeNode(attrID);
+        //customer elements
+        Element newCustomer = doc.createElement("customer");
+        rootElement.appendChild(newCustomer);
 
+        //attribute for customer element: ID
+        Attr attr = doc.createAttribute("ID");
+        attr.setValue(Integer.toString(latestID+1));
+        newCustomer.setAttributeNode(attr);
 
-        //set the customer name
-        Element custName= doc.createElement("name");
-        Scanner namereader =new Scanner(System.in);
-        System.out.println("Enter a Name: ");
-        String name=namereader.next();
-        custName.setTextContent(name);
-        custName.appendChild(newCustomer);
+        //add name, phNO, list of friends
+        //placeholder Krishna, 09448002087
+        //name
+        Element name = doc.createElement("name");
+        Scanner nameReder=new Scanner(System.in);
+        System.out.println("Enter Customer Name: ");
+        name.setTextContent(nameReder.next());
+        newCustomer.appendChild(name);
+        //phNO
+        Element phNO = doc.createElement("phNO");
+        Scanner phNOREader=new Scanner(System.in);
+        System.out.println("Enter Customer's Phone Number: ");
+        newCustomer.appendChild(phNO);
+        phNO.setTextContent(phNOREader.next());
 
-
-        /*
-        Scanner namereader =new Scanner(System.in);
-        System.out.println("Enter a Name: ");
-        String name=namereader.next());
-        customerName.setTextContent(name);
-
-
-
-        //set customer phNO
-        Node customerPhNO=customerCharacteristics.item(1);
-        Scanner phreader =new Scanner(System.in);
-        System.out.println("Enter a Phone Number: ");
-        String phNO=phreader.next();
-        customerPhNO.setTextContent(phNO);
-        phreader.close();
-        */
-        namereader.close();
-        idreader.close();
-        Node customersRootNode=doc.getFirstChild();
-        customersRootNode.appendChild(newCustomer);
+        phNOREader.close();
+        nameReder.close();
     }
 }
